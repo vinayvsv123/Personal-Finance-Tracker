@@ -7,16 +7,20 @@ import {
   deleteTransaction
 } from '../controllers/transaction.controller.js';
 import { authMiddleware } from '../middleware/authmiddleware.js';
+import { validateRequest } from '../middleware/validate.js';
+import { transactionSchema } from '../validators/transaction.validator.js';
 
 const router = Router();
 
 // Protect all transaction routes
 router.use(authMiddleware);
 
-router.post('/', createTransaction);
+// Apply validation to transaction creation
+router.post('/', validateRequest(transactionSchema), createTransaction);
+
 router.get('/', getTransactions);
 router.get('/:id', getTransactionById);
-router.put('/:id', updateTransaction);
-router.delete('/:id', deleteTransaction);
+router.put('/:id', validateRequest(transactionSchema), updateTransaction);
+router.delete('/:id', validateRequest(transactionSchema), deleteTransaction);
 
 export default router;

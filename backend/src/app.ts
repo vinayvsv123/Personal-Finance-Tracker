@@ -1,8 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import userRoutes from './routes/user.route';
-import transactionRoutes from './routes/transaction.route';
+import userRoutes from './routes/user.route.js';
+import transactionRoutes from './routes/transaction.route.js';
 
 const app=express();
 

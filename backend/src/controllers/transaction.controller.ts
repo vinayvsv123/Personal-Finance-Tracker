@@ -3,6 +3,7 @@ import Transaction from '../models/transaction.model.js';
 import type { AuthRequest } from '../middleware/authmiddleware.js';
 import { transactionSchema } from '../validators/transaction.validator.js';
 
+
 export const createTransaction = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
     const parsedData = transactionSchema.parse(req.body);
