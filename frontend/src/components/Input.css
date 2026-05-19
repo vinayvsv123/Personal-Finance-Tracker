@@ -1,0 +1,110 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.input-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: 0.25px;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.875rem;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input-field.has-icon {
+  padding-left: 2.625rem;
+}
+
+.input-field::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input-field:hover {
+  border-color: #cbd5e1;
+  background-color: var(--bg-secondary);
+}
+
+.input-field:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px var(--accent-blue-light);
+  background-color: var(--bg-primary);
+}
+
+.input-field.has-error {
+  border-color: var(--danger);
+}
+
+.input-field.has-error:focus {
+  box-shadow: 0 0 0 3px var(--danger-bg);
+}
+
+.input-error {
+  font-size: 0.75rem;
+  color: var(--danger);
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .input-field {
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    min-height: 44px;
+  }
+
+  .input-field.has-icon {
+    padding-left: 2.75rem;
+  }
+
+  .input-icon {
+    left: 0.75rem;
+  }
+}
+
+/* Autofill styling */
+.input-field:-webkit-autofill,
+.input-field:-webkit-autofill:hover,
+.input-field:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-primary) inset;
+  -webkit-text-fill-color: var(--text-primary);
+}
+
+.input-field:-webkit-autofill {
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+

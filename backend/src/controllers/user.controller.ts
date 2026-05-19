@@ -6,6 +6,7 @@ import { registerUserSchema, loginUserSchema } from '../validators/user.validato
 import type { AuthRequest } from '../middleware/authmiddleware.js';
 
 export const registerUser = async (req: Request, res: Response): Promise<void> => {
+  console.log("register user controller hit ");
   try {
     const parsedData = registerUserSchema.parse(req.body);
 
@@ -36,6 +37,7 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
 };
 
 export const loginUser = async (req: Request, res: Response): Promise<void> => {
+  console.log("login user controller hit ");
   try {
     const parsedData = loginUserSchema.parse(req.body);
 
@@ -64,6 +66,7 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
 };
 
 export const getProfile = async (req: AuthRequest, res: Response): Promise<void> => {
+  console.log("get profile controller hit");
   try {
     if (!req.user) {
       res.status(401).json({ message: 'Unauthorized' });
