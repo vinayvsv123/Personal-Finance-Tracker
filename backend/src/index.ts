@@ -18,6 +18,7 @@ const server=async (): Promise<void>=>{
     {
         console.error('Failed to start the server:', error);
         process.exit(1);
+        
     }
 }
 
