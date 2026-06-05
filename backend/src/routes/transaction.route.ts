@@ -20,7 +20,7 @@ router.post('/', validateRequest(transactionSchema), createTransaction);
 
 router.get('/', getTransactions);
 router.get('/:id', getTransactionById);
-router.put('/:id', validateRequest(transactionSchema), updateTransaction);
-router.delete('/:id', validateRequest(transactionSchema), deleteTransaction);
+router.put('/:id', validateRequest(transactionSchema.partial()), updateTransaction);
+router.delete('/:id', deleteTransaction);
 
 export default router;
