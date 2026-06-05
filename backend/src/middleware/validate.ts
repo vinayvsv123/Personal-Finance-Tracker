@@ -13,7 +13,8 @@ export const validateRequest =
       next();
     } catch (error) {
       if (error instanceof ZodError) {
-        return res.status(400).json({ errors: error.issues });
+        const message = error.issues.map((e) => e.message.trim()).join(', ');
+        return res.status(400).json({ message, errors: error.issues });
       }
       return res.status(500).json({ message: 'Internal server error' });
     }
