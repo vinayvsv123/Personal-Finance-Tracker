@@ -100,6 +100,7 @@ export const Auth: React.FC = () => {
               onChange={handleChange}
               icon={<Mail size={18} />}
               required
+              autoComplete="email"
             />
 
             <Input
@@ -111,6 +112,7 @@ export const Auth: React.FC = () => {
               onChange={handleChange}
               icon={<Lock size={18} />}
               required
+              autoComplete={isLogin ? "current-password" : "new-password"}
             />
 
             <Button
